@@ -152,6 +152,165 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Java连接数据库-JDBC" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/03/Java连接数据库-JDBC/">Java连接数据库(JDBC)</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/03/Java连接数据库-JDBC/" class="archive-article-date">
+  	<time datetime="2019-11-03T02:02:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><h2 id="JDBC（Java-Data-Base-Connectivity-java数据库连接）是一种用于执行SQL语句的Java-API，可以为多种关系数据库提供统一访问，它由一组用Java语言编写的类和接口组成。是Java访问数据库的标准规范"><a href="#JDBC（Java-Data-Base-Connectivity-java数据库连接）是一种用于执行SQL语句的Java-API，可以为多种关系数据库提供统一访问，它由一组用Java语言编写的类和接口组成。是Java访问数据库的标准规范" class="headerlink" title="JDBC（Java Data Base Connectivity,java数据库连接）是一种用于执行SQL语句的Java API，可以为多种关系数据库提供统一访问，它由一组用Java语言编写的类和接口组成。是Java访问数据库的标准规范"></a>JDBC（Java Data Base Connectivity,java数据库连接）是一种用于执行SQL语句的Java API，可以为多种关系数据库提供统一访问，它由一组用Java语言编写的类和接口组成。是Java访问数据库的标准规范</h2><h2 id="JDBC提供了一种基准-据此可以构建更高级的工具和接口，使数据库开发人员能够编写数据库应用程序。"><a href="#JDBC提供了一种基准-据此可以构建更高级的工具和接口，使数据库开发人员能够编写数据库应用程序。" class="headerlink" title="JDBC提供了一种基准,据此可以构建更高级的工具和接口，使数据库开发人员能够编写数据库应用程序。"></a>JDBC提供了一种基准,据此可以构建更高级的工具和接口，使数据库开发人员能够编写数据库应用程序。</h2><h2 id="JDBC需要连接驱动，驱动是两个设备要进行通信，满足一定通信数据格式，数据格式由设备提供商规定，设备提供商为设备提供驱动软件，通过软件可以与该设备进行通信。"><a href="#JDBC需要连接驱动，驱动是两个设备要进行通信，满足一定通信数据格式，数据格式由设备提供商规定，设备提供商为设备提供驱动软件，通过软件可以与该设备进行通信。" class="headerlink" title="JDBC需要连接驱动，驱动是两个设备要进行通信，满足一定通信数据格式，数据格式由设备提供商规定，设备提供商为设备提供驱动软件，通过软件可以与该设备进行通信。"></a>JDBC需要连接驱动，驱动是两个设备要进行通信，满足一定通信数据格式，数据格式由设备提供商规定，设备提供商为设备提供驱动软件，通过软件可以与该设备进行通信。</h2><h2 id="MySQL驱动mysql-connector-java-8-0-17-jar"><a href="#MySQL驱动mysql-connector-java-8-0-17-jar" class="headerlink" title="MySQL驱动mysql-connector-java-8.0.17.jar"></a>MySQL驱动mysql-connector-java-8.0.17.jar</h2><h1 id="二、JDBC原理"><a href="#二、JDBC原理" class="headerlink" title="二、JDBC原理"></a>二、JDBC原理</h1><h2 id="Java提供访问数据库规范称为JDBC，而生产厂商提供规范的实现类称为驱动。"><a href="#Java提供访问数据库规范称为JDBC，而生产厂商提供规范的实现类称为驱动。" class="headerlink" title="Java提供访问数据库规范称为JDBC，而生产厂商提供规范的实现类称为驱动。"></a>Java提供访问数据库规范称为JDBC，而生产厂商提供规范的实现类称为驱动。</h2><p><img src="https://images2018.cnblogs.com/blog/1363008/201806/1363008-20180604163023190-1829134536.png" alt="在这里插入图片描述"></p>
+<h2 id="JDBC是接口，驱动是接口的实现，没有驱动将无法完成数据库连接，从而不能操作数据库！每个数据库厂商都需要提供自己的驱动，用来连接自己公司的数据库，也就是说驱动一般都由数据库生成厂商提供。"><a href="#JDBC是接口，驱动是接口的实现，没有驱动将无法完成数据库连接，从而不能操作数据库！每个数据库厂商都需要提供自己的驱动，用来连接自己公司的数据库，也就是说驱动一般都由数据库生成厂商提供。" class="headerlink" title="JDBC是接口，驱动是接口的实现，没有驱动将无法完成数据库连接，从而不能操作数据库！每个数据库厂商都需要提供自己的驱动，用来连接自己公司的数据库，也就是说驱动一般都由数据库生成厂商提供。"></a>JDBC是接口，驱动是接口的实现，没有驱动将无法完成数据库连接，从而不能操作数据库！每个数据库厂商都需要提供自己的驱动，用来连接自己公司的数据库，也就是说驱动一般都由数据库生成厂商提供。</h2><h1 id="三、JDBC开发步骤"><a href="#三、JDBC开发步骤" class="headerlink" title="三、JDBC开发步骤"></a>三、JDBC开发步骤</h1><h2 id="1-注册驱动"><a href="#1-注册驱动" class="headerlink" title="1.注册驱动"></a><font color="red">1.注册驱动</font></h2><h3 id="用来告诉JVM使用的是哪个生产厂商的驱动"><a href="#用来告诉JVM使用的是哪个生产厂商的驱动" class="headerlink" title="用来告诉JVM使用的是哪个生产厂商的驱动"></a>用来告诉JVM使用的是哪个生产厂商的驱动</h3><h2 id="2-获得链接，链接数据库"><a href="#2-获得链接，链接数据库" class="headerlink" title="2.获得链接，链接数据库"></a><font color="red">2.获得链接，链接数据库</font></h2><h3 id="使用JDBC中的类，完成对MySQL数据库的链接"><a href="#使用JDBC中的类，完成对MySQL数据库的链接" class="headerlink" title="使用JDBC中的类，完成对MySQL数据库的链接"></a>使用JDBC中的类，完成对MySQL数据库的链接</h3><h2 id="3-获得语句执行平台"><a href="#3-获得语句执行平台" class="headerlink" title="3.获得语句执行平台"></a><font color="red">3.获得语句执行平台</font></h2><h3 id="通过连接对象获取对SQL语句的执行对象"><a href="#通过连接对象获取对SQL语句的执行对象" class="headerlink" title="通过连接对象获取对SQL语句的执行对象"></a>通过连接对象获取对SQL语句的执行对象</h3><h2 id="4-执行SQL语句"><a href="#4-执行SQL语句" class="headerlink" title="4.执行SQL语句"></a><font color="red">4.执行SQL语句</font></h2><h3 id="使用执行对象对数据库执行SQL语句-获取执行结果"><a href="#使用执行对象对数据库执行SQL语句-获取执行结果" class="headerlink" title="使用执行对象对数据库执行SQL语句   获取执行结果"></a>使用执行对象对数据库执行SQL语句   获取执行结果</h3><h2 id="5-处理结果"><a href="#5-处理结果" class="headerlink" title="5.处理结果"></a><font color="red">5.处理结果</font></h2><h3 id="处理结果集，（insert、update、delete无需处理"><a href="#处理结果集，（insert、update、delete无需处理" class="headerlink" title="处理结果集，（insert、update、delete无需处理)"></a>处理结果集，（insert、update、delete无需处理)</h3><h2 id="6-释放资源"><a href="#6-释放资源" class="headerlink" title="6.释放资源"></a><font color="red">6.释放资源</font></h2><h3 id="调用一堆-close-方法，将调用的对象弹栈"><a href="#调用一堆-close-方法，将调用的对象弹栈" class="headerlink" title="调用一堆 close()方法，将调用的对象弹栈"></a>调用一堆 close()方法，将调用的对象弹栈</h3><h2 id="详细步骤："><a href="#详细步骤：" class="headerlink" title="详细步骤："></a>详细步骤：</h2><h3 id="1-导入驱动jar包"><a href="#1-导入驱动jar包" class="headerlink" title="1.导入驱动jar包"></a>1.导入驱动jar包</h3><p>创建lib文件夹，存放所需要的所有jar包。<br>选择jar包，右键选择 bulid path 再选择 Add to bulid path<br><img src="https://images2018.cnblogs.com/blog/1363008/201806/1363008-20180604190902988-265048831.png" alt="在这里插入图片描述"></p>
+<h3 id="2-注册驱动"><a href="#2-注册驱动" class="headerlink" title="2.注册驱动"></a>2.注册驱动</h3><p>代码：<font color="red">class.forName(“com.mysql.jdbc.Dirver”);</font>JDBC规范定义驱动接口：java.sql.Driver，MySql驱动包提供了实现类：com.mysql.jdbc.Driver</p>
+<h3 id="3-获得链接"><a href="#3-获得链接" class="headerlink" title="3.获得链接"></a>3.获得链接</h3><p>代码：Connection conn=DiverManager.getConnection(“jdbc:Mysql://localhost:3306/goods,’root’,’123456’”);</p>
+<p>获取连接需要方法 DriverManager.getConnection(url,username,password)，三个参数分别表示，url 需要连接数据库的位置（网址） user用户名 password 密码<br>url比较复杂，下面是mysql的url：　<br>jdbc:mysql://localhost:3306/mydb<br>JDBC规定url的格式由三部分组成，每个部分中间使用冒号分隔。</p>
+<p>第一部分是jdbc，这是固定的；<br>第二部分是数据库名称，那么连接mysql数据库，第二部分当然是mysql了；<br>第三部分是由数据库厂商规定的，我们需要了解每个数据库厂商的要求，mysql的第三部分分别由数据库服务器的IP地址（localhost）、端口号（3306），以及DATABASE名称(mydb)组成。</p>
+<h3 id="4-获得SQL语句执政平台"><a href="#4-获得SQL语句执政平台" class="headerlink" title="4.获得SQL语句执政平台"></a>4.获得SQL语句执政平台</h3><p>代码：String sql=”某sql语句”;</p>
+<p>获取Statement语句执行平台：Statement stmt=con.createStatement();</p>
+<h3 id="5-处理结果集（执行insert、update、delete无需处理）"><a href="#5-处理结果集（执行insert、update、delete无需处理）" class="headerlink" title="5.处理结果集（执行insert、update、delete无需处理）"></a>5.处理结果集（执行insert、update、delete无需处理）</h3><p>ResultSet实际上就是一张二维的表格，我们可以调用其boolean next()方法指向某行记录，当第一次调用next()方法时，便指向第一行记录的位置，</p>
+<p>这时就可以使用ResultSet提供的getXXX(int col)方法(与索引从0开始不同个，列从1开始)来获取指定列的数据：</p>
+<p>代码：rs.next();//指向第一行</p>
+<p>rs.getInt(1);//获取第一行第一列的数据</p>
+<h3 id="6-释放资源-1"><a href="#6-释放资源-1" class="headerlink" title="6.释放资源"></a>6.释放资源</h3><p>与IO流一样，使用后的东西都需要关闭！关闭的顺序是先得到的后关闭，后得到的先关闭。<br>rs.close();</p>
+<p>stmt.close();</p>
+<p>con.close();</p>
+<h1 id="四、SQL注入问题"><a href="#四、SQL注入问题" class="headerlink" title="四、SQL注入问题"></a>四、SQL注入问题</h1><h2 id="使用PreparedStatement预处理对象时，建议每条sql语句所有的实际参数，都使用逗号分隔。"><a href="#使用PreparedStatement预处理对象时，建议每条sql语句所有的实际参数，都使用逗号分隔。" class="headerlink" title="使用PreparedStatement预处理对象时，建议每条sql语句所有的实际参数，都使用逗号分隔。"></a>使用PreparedStatement预处理对象时，建议每条sql语句所有的实际参数，都使用逗号分隔。</h2><p>String sql = “insert into sort(sid,sname) values(?,?)”;;</p>
+<p>PreparedStatement预处理对象代码：</p>
+<p>PreparedStatement psmt = conn.prepareStatement(sql);</p>
+<h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><h3 id="1-执行SQL语句："><a href="#1-执行SQL语句：" class="headerlink" title="1.执行SQL语句："></a>1.执行SQL语句：</h3><p> int executeUpdate(); –执行insert update delete语句.</p>
+<p>ResultSet executeQuery(); –执行select语句.</p>
+<p> boolean execute(); –执行select返回true 执行其他的语句返回false.</p>
+<h3 id="2-设置实际参数"><a href="#2-设置实际参数" class="headerlink" title="2.设置实际参数"></a>2.设置实际参数</h3><p> void setXxx(int index, Xxx xx) 将指定参数设置为给定Java的xx值。在将此值发送到数据库时，驱动程序将它转换成一个 SQL Xxx类型值。</p>
+<h2 id="实例代码"><a href="#实例代码" class="headerlink" title="实例代码"></a>实例代码</h2><p> package com.oracle.Demo01;</p>
+<p>import java.sql.Connection;<br>import java.sql.DriverManager;<br>import java.sql.ResultSet;<br>import java.sql.SQLException;<br>import java.sql.Statement;</p>
+<p>import com.mysql.jdbc.Driver;</p>
+<p>public class demo01 {</p>
+<pre><code>public static void main(String[] args) throws SQLException, ClassNotFoundException {
+    // TODO Auto-generated method stub</code></pre><p>//        1.    注册驱动.<br>//        告知JVM使用的是哪一个数据库的驱动<br>        //DriverManager.registerDriver(new Driver());<br>            //    把com.mysql.jdbc.Driver这个实现类直接扔到内存里<br>            //  扔到内存之后调用static静态代码块<br>            //  静态代码块中注册驱动<br>        Class.forName(“com.mysql.jdbc.Driver”);   //com.mysql.jdbc为驱动所在包<br>//        2.    获得连接对象.<br>//        使用JDBC中的类，完成对MySQL数据库的连接<br>        //jdbc:mysql://localhost:3306/数据库名<br>        String url=”jdbc:mysql://localhost:3306/goods?characterEncoding=utf-8”;<br>        String username=”root”;<br>        String password=”123456”;<br>        Connection conn=DriverManager.getConnection(url, username, password);<br>//        3.    获得语句执行平台<br>//        通过连接对象获取对SQL语句的执行者对象<br>        Statement sta=conn.createStatement();   //接收一定要用java里面的  导包导SQL里的<br>//        4.    执行sql语句<br>//        使用执行者对象，向数据库执行SQL语句<br>//        获取到数据库的执行后的结果<br>　　　　　//添加<br>        String sql=”insert into sort(sname,sdesc) value(‘电子设备’,’都是骗男人的’)”;<br>        int row=sta.executeUpdate(sql);<br>        System.out.println(row);<br>        //修改<br>        String sql=”update sort set sname=’玩具’ where sid=’1’”;<br>        int row=sta.executeUpdate(sql);<br>        System.out.println(row);<br>        //查询<br>        String sql=”select * from sort”;<br>        //删除<br>        String sql=”delete from sort where sid=’1’”;<br>//        5.    处理结果 (仅用于查询)<br>        ResultSet rs=sta.executeQuery(sql);<br>        while(rs.next()){<br>　　　　　　　　System.out.println(rs.getInt(“sid”)+”…”+rs.getString(“sname”)+”…”+rs.getString(“sdesc”));<br>        }<br>//        6.    释放资源.   (先开的后关)<br>//        调用一堆close()方法  关闭对象<br>        rs.close();<br>        sta.close();<br>        conn.close();</p>
+<pre><code>}</code></pre><p>}</p>
+<h2 id="封装JDBK方法："><a href="#封装JDBK方法：" class="headerlink" title="封装JDBK方法："></a>封装JDBK方法：</h2><p>package com.oracle.Demo01;</p>
+<p>import java.sql.Connection;<br>import java.sql.DriverManager;<br>import java.sql.ResultSet;<br>import java.sql.SQLException;<br>import java.sql.Statement;</p>
+<p>public class JDBCUtils {</p>
+<p>　　　　//提供获取连接的方法<br>private static Connection conn=null;<br>    static{<br>        try {<br>            Class.forName(“com.mysql.jdbc.Driver”);<br>            String url=”jdbc:mysql://localhost:3306/goods?characterEncoding=utf-8”;<br>            String username=”root”;<br>            String password=”123456”;<br>            conn=DriverManager.getConnection(url,username,password);<br>        } catch (Exception e) {<br>            // TODO Auto-generated catch block<br>            throw new RuntimeException(e+”数据库连接失败”);<br>        } </p>
+<pre><code>}
+//获取数据库连接对象
+public static Connection getConnection(){
+    return conn;
+}
+//关闭数据库的方法
+public static void close(ResultSet rs,Statement sta,Connection conn){
+    if(rs!=null){
+        try {
+            rs.close();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+    if(sta!=null){
+        try {
+            sta.close();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+    if(conn!=null){
+        try {
+            conn.close();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+}
+public static void close(Statement sta,Connection conn){
+    if(sta!=null){
+        try {
+            sta.close();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+    if(conn!=null){
+        try {
+            conn.close();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+}</code></pre><p>}</p>
+<h2 id="Test-类："><a href="#Test-类：" class="headerlink" title="Test 类："></a>Test 类：</h2><p>package com.oracle.Demo01;</p>
+<p>import java.sql.Connection;<br>import java.sql.PreparedStatement;<br>import java.sql.SQLException;</p>
+<p>public class Test {</p>
+<pre><code>public static void main(String[] args) throws SQLException {
+    // TODO Auto-generated method stub
+        Connection conn=JDBCUtils.getConnection();
+        String sql=&quot;insert into user(username,password) value(?,?)&quot;;
+        PreparedStatement pst=conn.prepareStatement(sql);
+        pst.setString(1, &quot;李四&quot;);
+        pst.setString(2, &quot;123456789&quot;);
+        int row=pst.executeUpdate();
+        System.out.println(row);
+        JDBCUtils.close(pst, conn);
+}</code></pre><p>}</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/03/Java连接数据库-JDBC/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-jsp内置对象、传参方式、作用域" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -172,7 +331,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="jsp内置对象、传参方式、作用域"><a href="#jsp内置对象、传参方式、作用域" class="headerlink" title="jsp内置对象、传参方式、作用域"></a>jsp内置对象、传参方式、作用域</h1><h2 id="一、JSP九大内置对象"><a href="#一、JSP九大内置对象" class="headerlink" title="一、JSP九大内置对象"></a>一、JSP九大内置对象</h2><ul>
+        <h1 id="一、JSP九大内置对象"><a href="#一、JSP九大内置对象" class="headerlink" title="一、JSP九大内置对象"></a>一、JSP九大内置对象</h1><ul>
 <li><p>（一）Request：客户端与服务器的一次请求中封装了用户提交的信息（包裹），该对象可以设置请求转 发request.getRequestDispatcher(String URL).forward(request,response)，是服务器行为，是一次请求， 所以页面的URL为原始请求处理的响应页面的URL（不是最终的处理请求的响应页面，因为客户端只请求 一次）。</p>
 </li>
 <li><p>（二）Response：对客户的请求做出的响应，向客户端发送数据，该对象可以设置重定向 response.sendRedirect(String URL)，是客户端行为，是两次请求，所以页面的URL为二次请求处理的响 应页面的URL。 </p>
@@ -192,7 +351,7 @@
 <li><p>（九）Exception：只有在处理异常的网页中可以直接访问exception隐式对象。 </p>
 </li>
 </ul>
-<h2 id="二、JSP七种传参方式"><a href="#二、JSP七种传参方式" class="headerlink" title="二、JSP七种传参方式"></a>二、JSP七种传参方式</h2><ul>
+<h1 id="二、JSP七种传参方式"><a href="#二、JSP七种传参方式" class="headerlink" title="二、JSP七种传参方式"></a>二、JSP七种传参方式</h1><ul>
 <li><p>（一）JavaBean：&lt;jsp:useBean id=”XXX” class=”JavaBean的全限定名(page+calssName)” scope=”session” /&gt; </p>
 </li>
 <li><p>（二）Session：session.setAttribute(String key,Object value)/seesion.getAttribute(String key) </p>
@@ -208,7 +367,7 @@
 <li><p>（七）URL传参：URL.jsp?参数1 的key=参数1的value&amp; 参数n的key=参数 n 的value</p>
 </li>
 </ul>
-<h2 id="三、JSP四个作用域"><a href="#三、JSP四个作用域" class="headerlink" title="三、JSP四个作用域"></a>三、JSP四个作用域</h2><ul>
+<h1 id="三、JSP四个作用域"><a href="#三、JSP四个作用域" class="headerlink" title="三、JSP四个作用域"></a>三、JSP四个作用域</h1><ul>
 <li><p>（一）Application：共享、全局、服务器启动时产生，重启服务器销毁。可以包含很多个session。 </p>
 </li>
 <li><p>（二）Session：会话。隔离。生命周期是从用户发起链接服务器至彻底与服务器完全断开。可以包含很 多个request。所谓当前会话，就是指从用户打开浏览器开始，到用户关闭浏览器这中间的过程。 </p>
@@ -360,7 +519,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="jsp和servlet的区别和联系"><a href="#jsp和servlet的区别和联系" class="headerlink" title="jsp和servlet的区别和联系"></a>jsp和servlet的区别和联系</h1><h2 id="1-jsp经编译后就变成了Servlet-JSP的本质就是Servlet，JVM只能识别java的类，不能识别JSP的代码-Web容器将JSP的代码编译成JVM能够识别的java类"><a href="#1-jsp经编译后就变成了Servlet-JSP的本质就是Servlet，JVM只能识别java的类，不能识别JSP的代码-Web容器将JSP的代码编译成JVM能够识别的java类" class="headerlink" title="1.jsp经编译后就变成了Servlet.(JSP的本质就是Servlet，JVM只能识别java的类，不能识别JSP的代码,Web容器将JSP的代码编译成JVM能够识别的java类)"></a>1.jsp经编译后就变成了Servlet.(JSP的本质就是Servlet，JVM只能识别java的类，不能识别JSP的代码,Web容器将JSP的代码编译成JVM能够识别的java类)</h2><h2 id="2-jsp更擅长表现于-页面显示-页面显示-servlet更擅长于逻辑控制"><a href="#2-jsp更擅长表现于-页面显示-页面显示-servlet更擅长于逻辑控制" class="headerlink" title="2.jsp更擅长表现于 页面显示 页面显示 ,servlet更擅长于逻辑控制"></a>2.jsp更擅长表现于 <font color="red">页面显示</font> 页面显示 ,servlet更擅长于<font color="red">逻辑控制</font></h2><h2 id="3-Servlet中没有内置对象，Jsp中的内置对象都是必须通过HttpServletRequest对象，HttpServletResponse对象以及HttpServlet对象得到-Jsp是Servlet的一种简化，使用Jsp只需要完成程序员需要输出到客户端的内容，Jsp中的Java脚本如何镶嵌到一个类中，由Jsp容器完成。而则是个完整的Java类Servlet，这个类的Service方法用于生成对客户端的响应。"><a href="#3-Servlet中没有内置对象，Jsp中的内置对象都是必须通过HttpServletRequest对象，HttpServletResponse对象以及HttpServlet对象得到-Jsp是Servlet的一种简化，使用Jsp只需要完成程序员需要输出到客户端的内容，Jsp中的Java脚本如何镶嵌到一个类中，由Jsp容器完成。而则是个完整的Java类Servlet，这个类的Service方法用于生成对客户端的响应。" class="headerlink" title="3.Servlet中没有内置对象，Jsp中的内置对象都是必须通过HttpServletRequest对象，HttpServletResponse对象以及HttpServlet对象得到.Jsp是Servlet的一种简化，使用Jsp只需要完成程序员需要输出到客户端的内容，Jsp中的Java脚本如何镶嵌到一个类中，由Jsp容器完成。而则是个完整的Java类Servlet，这个类的Service方法用于生成对客户端的响应。"></a>3.Servlet中<font color="red">没有内置对象</font>，Jsp中的内置对象都是必须通过HttpServletRequest对象，HttpServletResponse对象以及HttpServlet对象得到.Jsp是Servlet的一种简化，使用Jsp只需要完成程序员需要输出到客户端的内容，Jsp中的Java脚本如何镶嵌到一个类中，由Jsp容器完成。而<font color="red">则是个完整的Java类</font>Servlet，这个类的<font color="red">Service方法</font>用于生成对客户端的响应。</h2><h1 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h1><h2 id="JSP是Servlet技术的扩展，本质上就是Servlet的简易方式。JSP编译后是“类servlet”。Servlet和JSP最主要的不同点在于：Servlet的应用逻辑是在Java文件中，并且完全从表示层中的HTML里分离开来。而JSP的情况是Java和HTML可以组合成一个扩展名为-jsp的文件。JSP侧重于视图，Servlet主要用于控制逻辑。Servlet更多的是类似于一个Controller，用来做控制。"><a href="#JSP是Servlet技术的扩展，本质上就是Servlet的简易方式。JSP编译后是“类servlet”。Servlet和JSP最主要的不同点在于：Servlet的应用逻辑是在Java文件中，并且完全从表示层中的HTML里分离开来。而JSP的情况是Java和HTML可以组合成一个扩展名为-jsp的文件。JSP侧重于视图，Servlet主要用于控制逻辑。Servlet更多的是类似于一个Controller，用来做控制。" class="headerlink" title="JSP是Servlet技术的扩展，本质上就是Servlet的简易方式。JSP编译后是“类servlet”。Servlet和JSP最主要的不同点在于：Servlet的应用逻辑是在Java文件中，并且完全从表示层中的HTML里分离开来。而JSP的情况是Java和HTML可以组合成一个扩展名为.jsp的文件。JSP侧重于视图，Servlet主要用于控制逻辑。Servlet更多的是类似于一个Controller，用来做控制。"></a>JSP是Servlet技术的扩展，本质上就是Servlet的简易方式。JSP编译后是<font color="red">“类servlet”</font>。Servlet和JSP最主要的不同点在于：Servlet的<font color="red">应用逻辑</font>是在<font color="red">Java文件</font>中，并且完全从<font color="red">表示层中的HTML里分离开</font>来。而JSP的情况是<font color="red">Java</font>和<font color="red">HTML</font>可以组合成一个扩展名为<font color="red">.jsp</font>的文件。JSP侧重于<font color="red">视图</font>，Servlet主要用于<font color="red">控制逻辑。Servlet更多的是类似于一个Controller，用来做控制。</font></h2>
+        <h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><h2 id="1-jsp经编译后就变成了Servlet-JSP的本质就是Servlet，JVM只能识别java的类，不能识别JSP的代码-Web容器将JSP的代码编译成JVM能够识别的java类"><a href="#1-jsp经编译后就变成了Servlet-JSP的本质就是Servlet，JVM只能识别java的类，不能识别JSP的代码-Web容器将JSP的代码编译成JVM能够识别的java类" class="headerlink" title="1.jsp经编译后就变成了Servlet.(JSP的本质就是Servlet，JVM只能识别java的类，不能识别JSP的代码,Web容器将JSP的代码编译成JVM能够识别的java类)"></a>1.jsp经编译后就变成了Servlet.(JSP的本质就是Servlet，JVM只能识别java的类，不能识别JSP的代码,Web容器将JSP的代码编译成JVM能够识别的java类)</h2><h2 id="2-jsp更擅长表现于-页面显示-页面显示-servlet更擅长于逻辑控制"><a href="#2-jsp更擅长表现于-页面显示-页面显示-servlet更擅长于逻辑控制" class="headerlink" title="2.jsp更擅长表现于 页面显示 页面显示 ,servlet更擅长于逻辑控制"></a>2.jsp更擅长表现于 <font color="red">页面显示</font> 页面显示 ,servlet更擅长于<font color="red">逻辑控制</font></h2><h2 id="3-Servlet中没有内置对象，Jsp中的内置对象都是必须通过HttpServletRequest对象，HttpServletResponse对象以及HttpServlet对象得到-Jsp是Servlet的一种简化，使用Jsp只需要完成程序员需要输出到客户端的内容，Jsp中的Java脚本如何镶嵌到一个类中，由Jsp容器完成。而则是个完整的Java类Servlet，这个类的Service方法用于生成对客户端的响应。"><a href="#3-Servlet中没有内置对象，Jsp中的内置对象都是必须通过HttpServletRequest对象，HttpServletResponse对象以及HttpServlet对象得到-Jsp是Servlet的一种简化，使用Jsp只需要完成程序员需要输出到客户端的内容，Jsp中的Java脚本如何镶嵌到一个类中，由Jsp容器完成。而则是个完整的Java类Servlet，这个类的Service方法用于生成对客户端的响应。" class="headerlink" title="3.Servlet中没有内置对象，Jsp中的内置对象都是必须通过HttpServletRequest对象，HttpServletResponse对象以及HttpServlet对象得到.Jsp是Servlet的一种简化，使用Jsp只需要完成程序员需要输出到客户端的内容，Jsp中的Java脚本如何镶嵌到一个类中，由Jsp容器完成。而则是个完整的Java类Servlet，这个类的Service方法用于生成对客户端的响应。"></a>3.Servlet中<font color="red">没有内置对象</font>，Jsp中的内置对象都是必须通过HttpServletRequest对象，HttpServletResponse对象以及HttpServlet对象得到.Jsp是Servlet的一种简化，使用Jsp只需要完成程序员需要输出到客户端的内容，Jsp中的Java脚本如何镶嵌到一个类中，由Jsp容器完成。而<font color="red">则是个完整的Java类</font>Servlet，这个类的<font color="red">Service方法</font>用于生成对客户端的响应。</h2><h1 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h1><h2 id="JSP是Servlet技术的扩展，本质上就是Servlet的简易方式。JSP编译后是“类servlet”。Servlet和JSP最主要的不同点在于：Servlet的应用逻辑是在Java文件中，并且完全从表示层中的HTML里分离开来。而JSP的情况是Java和HTML可以组合成一个扩展名为-jsp的文件。JSP侧重于视图，Servlet主要用于控制逻辑。Servlet更多的是类似于一个Controller，用来做控制。"><a href="#JSP是Servlet技术的扩展，本质上就是Servlet的简易方式。JSP编译后是“类servlet”。Servlet和JSP最主要的不同点在于：Servlet的应用逻辑是在Java文件中，并且完全从表示层中的HTML里分离开来。而JSP的情况是Java和HTML可以组合成一个扩展名为-jsp的文件。JSP侧重于视图，Servlet主要用于控制逻辑。Servlet更多的是类似于一个Controller，用来做控制。" class="headerlink" title="JSP是Servlet技术的扩展，本质上就是Servlet的简易方式。JSP编译后是“类servlet”。Servlet和JSP最主要的不同点在于：Servlet的应用逻辑是在Java文件中，并且完全从表示层中的HTML里分离开来。而JSP的情况是Java和HTML可以组合成一个扩展名为.jsp的文件。JSP侧重于视图，Servlet主要用于控制逻辑。Servlet更多的是类似于一个Controller，用来做控制。"></a>JSP是Servlet技术的扩展，本质上就是Servlet的简易方式。JSP编译后是<font color="red">“类servlet”</font>。Servlet和JSP最主要的不同点在于：Servlet的<font color="red">应用逻辑</font>是在<font color="red">Java文件</font>中，并且完全从<font color="red">表示层中的HTML里分离开</font>来。而JSP的情况是<font color="red">Java</font>和<font color="red">HTML</font>可以组合成一个扩展名为<font color="red">.jsp</font>的文件。JSP侧重于<font color="red">视图</font>，Servlet主要用于<font color="red">控制逻辑。Servlet更多的是类似于一个Controller，用来做控制。</font></h2>
       
 
       

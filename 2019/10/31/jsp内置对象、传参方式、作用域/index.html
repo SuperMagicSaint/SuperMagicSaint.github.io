@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>jsp内置对象、传参方式、作用域 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="jsp内置对象、传参方式、作用域一、JSP九大内置对象 （一）Request：客户端与服务器的一次请求中封装了用户提交的信息（包裹），该对象可以设置请求转 发request.getRequestDispatcher(String URL).forward(request,response)，是服务器行为，是一次请求， 所以页面的URL为原始请求处理的响应页面的URL（不是最终的处理请求的响应页面，">
+  <meta name="description" content="一、JSP九大内置对象 （一）Request：客户端与服务器的一次请求中封装了用户提交的信息（包裹），该对象可以设置请求转 发request.getRequestDispatcher(String URL).forward(request,response)，是服务器行为，是一次请求， 所以页面的URL为原始请求处理的响应页面的URL（不是最终的处理请求的响应页面，因为客户端只请求 一次）。  （">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jsp内置对象、传参方式、作用域">
 <meta property="og:url" content="http://yoursite.com/2019/10/31/jsp内置对象、传参方式、作用域/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="jsp内置对象、传参方式、作用域一、JSP九大内置对象 （一）Request：客户端与服务器的一次请求中封装了用户提交的信息（包裹），该对象可以设置请求转 发request.getRequestDispatcher(String URL).forward(request,response)，是服务器行为，是一次请求， 所以页面的URL为原始请求处理的响应页面的URL（不是最终的处理请求的响应页面，">
+<meta property="og:description" content="一、JSP九大内置对象 （一）Request：客户端与服务器的一次请求中封装了用户提交的信息（包裹），该对象可以设置请求转 发request.getRequestDispatcher(String URL).forward(request,response)，是服务器行为，是一次请求， 所以页面的URL为原始请求处理的响应页面的URL（不是最终的处理请求的响应页面，因为客户端只请求 一次）。  （">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-31T05:12:57.624Z">
+<meta property="og:updated_time" content="2019-11-03T01:56:24.855Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jsp内置对象、传参方式、作用域">
-<meta name="twitter:description" content="jsp内置对象、传参方式、作用域一、JSP九大内置对象 （一）Request：客户端与服务器的一次请求中封装了用户提交的信息（包裹），该对象可以设置请求转 发request.getRequestDispatcher(String URL).forward(request,response)，是服务器行为，是一次请求， 所以页面的URL为原始请求处理的响应页面的URL（不是最终的处理请求的响应页面，">
+<meta name="twitter:description" content="一、JSP九大内置对象 （一）Request：客户端与服务器的一次请求中封装了用户提交的信息（包裹），该对象可以设置请求转 发request.getRequestDispatcher(String URL).forward(request,response)，是服务器行为，是一次请求， 所以页面的URL为原始请求处理的响应页面的URL（不是最终的处理请求的响应页面，因为客户端只请求 一次）。  （">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -174,7 +174,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="jsp内置对象、传参方式、作用域"><a href="#jsp内置对象、传参方式、作用域" class="headerlink" title="jsp内置对象、传参方式、作用域"></a>jsp内置对象、传参方式、作用域</h1><h2 id="一、JSP九大内置对象"><a href="#一、JSP九大内置对象" class="headerlink" title="一、JSP九大内置对象"></a>一、JSP九大内置对象</h2><ul>
+        <h1 id="一、JSP九大内置对象"><a href="#一、JSP九大内置对象" class="headerlink" title="一、JSP九大内置对象"></a>一、JSP九大内置对象</h1><ul>
 <li><p>（一）Request：客户端与服务器的一次请求中封装了用户提交的信息（包裹），该对象可以设置请求转 发request.getRequestDispatcher(String URL).forward(request,response)，是服务器行为，是一次请求， 所以页面的URL为原始请求处理的响应页面的URL（不是最终的处理请求的响应页面，因为客户端只请求 一次）。</p>
 </li>
 <li><p>（二）Response：对客户的请求做出的响应，向客户端发送数据，该对象可以设置重定向 response.sendRedirect(String URL)，是客户端行为，是两次请求，所以页面的URL为二次请求处理的响 应页面的URL。 </p>
@@ -194,7 +194,7 @@
 <li><p>（九）Exception：只有在处理异常的网页中可以直接访问exception隐式对象。 </p>
 </li>
 </ul>
-<h2 id="二、JSP七种传参方式"><a href="#二、JSP七种传参方式" class="headerlink" title="二、JSP七种传参方式"></a>二、JSP七种传参方式</h2><ul>
+<h1 id="二、JSP七种传参方式"><a href="#二、JSP七种传参方式" class="headerlink" title="二、JSP七种传参方式"></a>二、JSP七种传参方式</h1><ul>
 <li><p>（一）JavaBean：&lt;jsp:useBean id=”XXX” class=”JavaBean的全限定名(page+calssName)” scope=”session” /&gt; </p>
 </li>
 <li><p>（二）Session：session.setAttribute(String key,Object value)/seesion.getAttribute(String key) </p>
@@ -210,7 +210,7 @@
 <li><p>（七）URL传参：URL.jsp?参数1 的key=参数1的value&amp; 参数n的key=参数 n 的value</p>
 </li>
 </ul>
-<h2 id="三、JSP四个作用域"><a href="#三、JSP四个作用域" class="headerlink" title="三、JSP四个作用域"></a>三、JSP四个作用域</h2><ul>
+<h1 id="三、JSP四个作用域"><a href="#三、JSP四个作用域" class="headerlink" title="三、JSP四个作用域"></a>三、JSP四个作用域</h1><ul>
 <li><p>（一）Application：共享、全局、服务器启动时产生，重启服务器销毁。可以包含很多个session。 </p>
 </li>
 <li><p>（二）Session：会话。隔离。生命周期是从用户发起链接服务器至彻底与服务器完全断开。可以包含很 多个request。所谓当前会话，就是指从用户打开浏览器开始，到用户关闭浏览器这中间的过程。 </p>
@@ -312,6 +312,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/11/03/Java连接数据库-JDBC/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Java连接数据库(JDBC)
+        
+      </div>
+    </a>
   
   
     <a href="/2019/10/28/jsp实现登录功能/" id="article-nav-older" class="article-nav-link-wrap">
