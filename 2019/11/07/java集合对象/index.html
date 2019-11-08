@@ -6,15 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/10 | Hexo</title>
+  <title>java集合对象 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2019/10/index.html">
+  <meta name="description" content="一、概念 不同接口之间的存储区别:(1).Collection接口存储一组不唯一(允许重复)、无序的对象。(2).Set接口继承 Collection接口，存储一组唯一(不允许重复)、无序的对象。(3).List接口继承Collection接口，存储一组不唯一 (允许重复)、有序(以元素插入的次序来放置元素，不会重新排列)的对象。(4).Map接口存储一组成对的键-值对 象，提供key(键)到va">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java集合对象">
+<meta property="og:url" content="http://yoursite.com/2019/11/07/java集合对象/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一、概念 不同接口之间的存储区别:(1).Collection接口存储一组不唯一(允许重复)、无序的对象。(2).Set接口继承 Collection接口，存储一组唯一(不允许重复)、无序的对象。(3).List接口继承Collection接口，存储一组不唯一 (允许重复)、有序(以元素插入的次序来放置元素，不会重新排列)的对象。(4).Map接口存储一组成对的键-值对 象，提供key(键)到va">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https://i.loli.net/2019/11/08/jt91BFsm2nhNkQZ.gif">
+<meta property="og:updated_time" content="2019-11-08T14:46:03.034Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="java集合对象">
+<meta name="twitter:description" content="一、概念 不同接口之间的存储区别:(1).Collection接口存储一组不唯一(允许重复)、无序的对象。(2).Set接口继承 Collection接口，存储一组唯一(不允许重复)、无序的对象。(3).List接口继承Collection接口，存储一组不唯一 (允许重复)、有序(以元素插入的次序来放置元素，不会重新排列)的对象。(4).Map接口存储一组成对的键-值对 象，提供key(键)到va">
+<meta name="twitter:image" content="https://i.loli.net/2019/11/08/jt91BFsm2nhNkQZ.gif">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,124 +156,203 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-java集合对象" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      java集合对象
+    </h1>
+  
+
+        
+        <a href="/2019/11/07/java集合对象/" class="archive-article-date">
+  	<time datetime="2019-11-07T03:14:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-07</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h1><p><img src="https://i.loli.net/2019/11/08/jt91BFsm2nhNkQZ.gif" alt="在这里插入图片描述"></p>
+<h2 id="不同接口之间的存储区别"><a href="#不同接口之间的存储区别" class="headerlink" title="不同接口之间的存储区别:"></a>不同接口之间的存储区别:</h2><h3 id="1-Collection接口存储一组不唯一-允许重复-、无序的对象。"><a href="#1-Collection接口存储一组不唯一-允许重复-、无序的对象。" class="headerlink" title="(1).Collection接口存储一组不唯一(允许重复)、无序的对象。"></a>(1).Collection接口存储一组不唯一(允许重复)、无序的对象。</h3><h3 id="2-Set接口继承-Collection接口，存储一组唯一-不允许重复-、无序的对象。"><a href="#2-Set接口继承-Collection接口，存储一组唯一-不允许重复-、无序的对象。" class="headerlink" title="(2).Set接口继承 Collection接口，存储一组唯一(不允许重复)、无序的对象。"></a>(2).Set接口继承 Collection接口，存储一组唯一(不允许重复)、无序的对象。</h3><h3 id="3-List接口继承Collection接口，存储一组不唯一-允许重复-、有序-以元素插入的次序来放置元素，不会重新排列-的对象。"><a href="#3-List接口继承Collection接口，存储一组不唯一-允许重复-、有序-以元素插入的次序来放置元素，不会重新排列-的对象。" class="headerlink" title="(3).List接口继承Collection接口，存储一组不唯一 (允许重复)、有序(以元素插入的次序来放置元素，不会重新排列)的对象。"></a>(3).List接口继承Collection接口，存储一组不唯一 (允许重复)、有序(以元素插入的次序来放置元素，不会重新排列)的对象。</h3><h3 id="4-Map接口存储一组成对的键-值对-象，提供key-键-到value-值-的映射。Map中的key不要求有序，不允许重复。value同样不要求有序，但允许重复。"><a href="#4-Map接口存储一组成对的键-值对-象，提供key-键-到value-值-的映射。Map中的key不要求有序，不允许重复。value同样不要求有序，但允许重复。" class="headerlink" title="(4).Map接口存储一组成对的键-值对 象，提供key(键)到value(值)的映射。Map中的key不要求有序，不允许重复。value同样不要求有序，但允许重复。"></a>(4).Map接口存储一组成对的键-值对 象，提供key(键)到value(值)的映射。Map中的key不要求有序，不允许重复。value同样不要求有序，但允许重复。</h3><h1 id="list、set、map集合"><a href="#list、set、map集合" class="headerlink" title="list、set、map集合"></a>list、set、map集合</h1><h2 id="list和set的区别："><a href="#list和set的区别：" class="headerlink" title="list和set的区别："></a>list和set的区别：</h2><ul>
+<li><p>List中是可以存放重复元素的。Set接口，它里面的集合，所存储的元素就是不重复的。</p>
+</li>
+<li><p>LIst集合它是一个有序的(元素存与取的顺序相同)，它可以存储重复的元素。</p>
+</li>
+<li><p>Set是一个无序的集合(元素存与取的顺序可能不同),它不能存储重复的元素。</p>
+</li>
+</ul>
+<h3 id="List集合中的特有方法"><a href="#List集合中的特有方法" class="headerlink" title="List集合中的特有方法"></a>List集合中的特有方法</h3><ul>
+<li><p>void add(int index, Object element)将指定的元素，添加到该集合中的指定位置上</p>
+</li>
+<li><p>Object get(int index)返回集合中指定位置的元素。</p>
+</li>
+<li><p>Object remove(int index) 移除列表中指定位置的元素, 返回的是被移除的元素。</p>
+</li>
+<li><p>Object set(int index, Object element)用指定元素替换集合中指定位置的元素,返回值的更新前的元素。</p>
+</li>
+</ul>
+<h1 id="HashSet"><a href="#HashSet" class="headerlink" title="HashSet"></a>HashSet</h1><p>元素唯一，不能重复 底层结构是 哈希表结构</p>
+<p>元素的存与取的顺序不能保证一致</p>
+<h1 id="LinkedHashSet"><a href="#LinkedHashSet" class="headerlink" title="LinkedHashSet"></a>LinkedHashSet</h1><p>元素唯一不能重复 底层结构是 哈希表结构 + 链表结构</p>
+<p>元素的存与取的顺序一致</p>
+<h1 id="Map集合"><a href="#Map集合" class="headerlink" title="Map集合"></a>Map集合</h1><p>saveInMap(receiveAddress,fileName)方法：<br>Map&lt;key,value&gt; map = new Map&lt;key,value&gt;();<br>key = fileName;<br>value = receiveAddress;<br>map.put(key,value); </p>
+<h2 id="Map遍历"><a href="#Map遍历" class="headerlink" title="Map遍历"></a>Map遍历</h2><ul>
+<li><p>Entry 由于Map中存放的元素均为键值对，故每一个键值对必然存在一个映射关系。 Map中采用Entry内 部类来表示一个映射项，映射项包含Key和Value (我们总说键值对键值对, 每一个键值对也就是一个Entry) Map.Entry里面包含getKey()和getValue()方法。</p>
+</li>
+<li><p>entrySet entrySet是 java中 键-值 对的集合，Set里面的类型是Map.Entry，一般可以通过map.entrySet() 得到。 entrySet实现了Set接口，里面存放的是键值对。一个K对应一个V。</p>
+</li>
+</ul>
+<h3 id="用来遍历map的一种方法："><a href="#用来遍历map的一种方法：" class="headerlink" title="用来遍历map的一种方法："></a>用来遍历map的一种方法：</h3><pre><code>Set&lt;Map.Entry&lt;String, String&gt;&gt; entryseSet=map.entrySet();
+
+    for (Map.Entry&lt;String, String&gt; entry:entryseSet) {
+            System.out.println(entry.getKey()+&quot;,&quot;+entry.getValue());     } 
+    //即通过getKey（）得到K，getValue得到V。</code></pre><h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><ul>
+<li>List接口：ArrayList、LinkedList </li>
+<li>Set接口：HashSet、LinkedHashSet </li>
+<li>Map接口：HashMap </li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/31/jsp内置对象、传参方式、作用域/" class="archive-article-date">
-  	<time datetime="2019-10-31T04:46:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/31/jsp内置对象、传参方式、作用域/">jsp内置对象、传参方式、作用域</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/07/java集合对象/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/28/jsp实现登录功能/" class="archive-article-date">
-  	<time datetime="2019-10-28T10:45:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-28</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/11/08/Dao实例/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Dao实例
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/11/03/Java连接数据库-JDBC/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java连接数据库(JDBC)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/28/jsp实现登录功能/">jsp实现登录功能</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/28/jsp和servlet的区别和联系/" class="archive-article-date">
-  	<time datetime="2019-10-28T07:36:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/28/jsp和servlet的区别和联系/">jsp和servlet的区别和联系</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/22/初识jsp/" class="archive-article-date">
-  	<time datetime="2019-10-22T11:50:01.015Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-22</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -290,8 +375,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

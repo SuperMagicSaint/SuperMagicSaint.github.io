@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/10 | Hexo</title>
+  <title>Dao实例 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2019/10/index.html">
+  <meta name="description" content="jdbc连接类jdbcDtill.javapackage com.jdbc.login;  import java.sql.Connection; import java.sql.DriverManager; import java.sql.PreparedStatement; import java.sql.ResultSet;  public class JdbcUtil {  private">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dao实例">
+<meta property="og:url" content="http://yoursite.com/2019/11/08/Dao实例/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="jdbc连接类jdbcDtill.javapackage com.jdbc.login;  import java.sql.Connection; import java.sql.DriverManager; import java.sql.PreparedStatement; import java.sql.ResultSet;  public class JdbcUtil {  private">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-11-08T14:02:10.526Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Dao实例">
+<meta name="twitter:description" content="jdbc连接类jdbcDtill.javapackage com.jdbc.login;  import java.sql.Connection; import java.sql.DriverManager; import java.sql.PreparedStatement; import java.sql.ResultSet;  public class JdbcUtil {  private">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,124 +154,382 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Dao实例" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Dao实例
+    </h1>
+  
+
+        
+        <a href="/2019/11/08/Dao实例/" class="archive-article-date">
+  	<time datetime="2019-11-08T13:41:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-08</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="jdbc连接类jdbcDtill-java"><a href="#jdbc连接类jdbcDtill-java" class="headerlink" title="jdbc连接类jdbcDtill.java"></a>jdbc连接类jdbcDtill.java</h1><pre><code>package com.jdbc.login;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class JdbcUtil {
+
+private static String  driver =&quot;com.mysql.cj.jdbc.Driver&quot;;// 数据库驱动类
+private static String  url =&quot;jdbc:mysql://localhost:3306/school_db?&quot;
+        + &quot;useSSL=false&amp;serverTimezone=UTC&quot;;// 数据库链接
+private static String  user =&quot;root&quot;;// 数据库用户名
+private static String  password =&quot;root&quot;;// 数据库密码
+
+// 权限修饰符  静态修饰符   返回值类型  方法名称
+/**
+ * 获取链接的
+ * @return conn
+ */
+public static Connection getConnection() {
+
+    try {
+        //1. 类加载
+        Class.forName(driver);
+        //2. 驱动管理获取链接\三个参数\  接收
+        Connection connection = DriverManager.getConnection(url, user, password);
+        return connection;
+    } catch (Exception e) {
+        throw new RuntimeException(e);
+    }
+}
+// TODO 关闭链接
+public static void closeAll(Connection connection,PreparedStatement past,ResultSet rs) {
+    try {
+        if (rs!=null) {
+            rs.close();//释放结果集
+        }
+        if (past!=null) {
+            past.close();//关闭PreparedStatement对象
+        }
+        if (connection!=null) {
+            connection.close();//关闭数据库连接
+        }
+    } catch (Exception e) {
+        // TODO: handle exception
+        e.printStackTrace();
+        }
+    }
+}</code></pre><h1 id="实体类user-java"><a href="#实体类user-java" class="headerlink" title="实体类user.java"></a>实体类user.java</h1><pre><code>package com.jdbc.login;
+
+public class User {
+
+private Integer id;
+
+private String username;
+
+private String password;
+
+private String sex;
+
+public Integer getId() {
+    return id;
+}
+
+public void setId(Integer id) {
+    this.id = id;
+}
+
+public String getUsername() {
+    return username;
+}
+
+public void setUsername(String username) {
+    this.username = username;
+}
+
+public String getPassword() {
+    return password;
+}
+
+public void setPassword(String password) {
+    this.password = password;
+}
+
+public String getSex() {
+    return sex;
+}
+
+public void setSex(String sex) {
+    this.sex = sex;
+}
+
+@Override
+public String toString() {
+    return &quot;[id=&quot; + id + &quot;, username=&quot; + username + &quot;, password=&quot;
+            + password + &quot;, sex=&quot; + sex + &quot;]&quot;;
+    }
+
+}</code></pre><h1 id="接口类UserDao-java"><a href="#接口类UserDao-java" class="headerlink" title="接口类UserDao.java"></a>接口类UserDao.java</h1><pre><code>package com.jdbc.login;
+
+public interface UserDao {
+
+/**
+ * 用户登录功能
+ * @param username 参数  为用户名
+ * @param password 参数 为密码
+ * @return  user
+ */
+User login(String username , String password);
+
+}</code></pre><h1 id="实现类UserDaoImpl-java"><a href="#实现类UserDaoImpl-java" class="headerlink" title="实现类UserDaoImpl.java"></a>实现类UserDaoImpl.java</h1><pre><code>package com.jdbc.login;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class UserDaoImpl implements UserDao {
+
+@Override
+public User login(String username, String password) {
+    // TODO Auto-generated method stub
+
+    try {
+
+        Connection con = JdbcUtil.getConnection();
+
+        Statement st = con.createStatement();
+
+        ResultSet rs = st
+                .executeQuery(&quot;select * from  user  where username = &apos;&quot;
+                        + username + &quot;&apos;  and password = &apos;&quot; + password
+                        + &quot;&apos;;&quot;);
+
+        if (rs.next()) {
+            User user = new User();
+
+            user.setUsername(rs.getString(&quot;username&quot;));
+            user.setPassword(rs.getString(&quot;password&quot;));
+
+            System.out.println(&quot;UserDao中的信息为：&quot;+user);
+
+            return user;
+        } else {
+            return null;
+        }
+
+    } catch (SQLException e) {
+        // throw new UserLoginException();
+    }
+
+    return null;
+    }
+
+}</code></pre><h1 id="Servlet-UserLoginServlet-java"><a href="#Servlet-UserLoginServlet-java" class="headerlink" title="Servlet:UserLoginServlet.java"></a>Servlet:UserLoginServlet.java</h1><pre><code>package com.jdbc.login;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.sun.org.apache.regexp.internal.recompile;
+/**
+* servlet相应的java代码
+*/
+public class UserLoginServlet extends HttpServlet {
+
+public void doGet(HttpServletRequest request, HttpServletResponse response)
+throws ServletException, IOException {
+    /*
+     * 1 改变编码格式
+     */
+    response.setContentType(&quot;text/html&quot;);
+    response.setCharacterEncoding(&quot;utf-8&quot;);
+    request.setCharacterEncoding(&quot;utf-8&quot;);
+
+    /*
+     * 2. 获取jsp界面输入的账号和密码
+     */
+    String username = request.getParameter(&quot;username&quot;);
+    String password = request.getParameter(&quot;password&quot;);
+
+    /*
+     * 3. 将获取到的用户名和密码传递给 userService!
+     * 所以 得有  userService  没有 怎么办?  实例化  就有了 
+     */
+    UserService userService = new UserServiceImpl();
+
+    User u = userService.userLogin(username, password);
+
+    if(u == null){
+        response.getWriter().write(&quot;您的用户名或密码有误，请检查！&quot;);
+    }else{
+        response.getWriter().write(&quot;用户登录成功！&quot;);    
+        }
+    }
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+    doGet( request,  response);
+        }
+    }</code></pre><h1 id="接口类UserService-java"><a href="#接口类UserService-java" class="headerlink" title="接口类UserService.java"></a>接口类UserService.java</h1><pre><code>package com.jdbc.login;
+
+public interface UserService {
+
+ /**
+ * 用户登录功能
+ * @param username 参数  为用户名
+ * @param password 参数 为密码
+ * @return  user
+ */
+User userLogin(String username , String password);   
+}</code></pre><h1 id="实现类UserServiceImpl-java"><a href="#实现类UserServiceImpl-java" class="headerlink" title="实现类UserServiceImpl.java"></a>实现类UserServiceImpl.java</h1><pre><code>package com.jdbc.login;
+
+public class UserServiceImpl implements UserService {
+
+// 采用多态的形式进行实例化dao  
+UserDao dao = new  UserDaoImpl();
+
+@Override
+public User userLogin(String username, String password) {
+    //dao代表的是UserDao 这个接口
+    //.login  用这个接口中的用户登录功能  并且传了两个参数给你
+    return dao.login(username, password);
+    }
+}</code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/31/jsp内置对象、传参方式、作用域/" class="archive-article-date">
-  	<time datetime="2019-10-31T04:46:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/31/jsp内置对象、传参方式、作用域/">jsp内置对象、传参方式、作用域</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/08/Dao实例/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/28/jsp实现登录功能/" class="archive-article-date">
-  	<time datetime="2019-10-28T10:45:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-28</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/07/java集合对象/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java集合对象</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/28/jsp实现登录功能/">jsp实现登录功能</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/28/jsp和servlet的区别和联系/" class="archive-article-date">
-  	<time datetime="2019-10-28T07:36:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/28/jsp和servlet的区别和联系/">jsp和servlet的区别和联系</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/22/初识jsp/" class="archive-article-date">
-  	<time datetime="2019-10-22T11:50:01.015Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-22</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -290,8 +552,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
