@@ -152,6 +152,282 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-mysql-语句" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/16/mysql-语句/">mysql 语句</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/16/mysql-语句/" class="archive-article-date">
+  	<time datetime="2019-11-16T12:15:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>前言：关键字大写，自定义小写</strong></p>
+<h1 id="一-、常用操作数据库的命令"><a href="#一-、常用操作数据库的命令" class="headerlink" title="一 、常用操作数据库的命令"></a>一 、常用操作数据库的命令</h1><ul>
+<li><p>SHOW DATABASE; 查看所有的数据库</p>
+</li>
+<li><p>CREATE DATABASE 数据库名; 创建一个数据库</p>
+</li>
+<li><p>DROP DATABASE 数据库名; 删除一个数据库</p>
+</li>
+<li><p>USE 数据库名; 选中库,在建表之前必须要选择数据库</p>
+</li>
+<li><p>SHOW TABLES; 在选中的数据库之中查看所有的表</p>
+</li>
+<li><p>CREATE TABLE 表名 (字段1 类型, 字段2 类型); 创建一个表</p>
+</li>
+<li><p>DESC 表名; 查看所在的表的字段</p>
+</li>
+<li><p>DROP TABLE 表名; 删除表</p>
+</li>
+<li><p>SHOW CREATE DATABASE 库名; 查看创建库的详细信息</p>
+</li>
+<li><p>SHOW CREATE TABLE 表名; 查看创建表的详细信息</p>
+</li>
+</ul>
+<h1 id="二、修改表的命令"><a href="#二、修改表的命令" class="headerlink" title="二、修改表的命令"></a>二、修改表的命令</h1><ul>
+<li><p>修改字段类型 ALTER TABLE 表名 MODIFY 字段 字段类型;</p>
+</li>
+<li><p>添加新的字段 ALTER TABLE 表名 ADD 字段 字段类型;</p>
+</li>
+<li><p>添加字段并指定位置  ALTER TABLE 表名 ADD 字段 字段类型 AFTER 字段;</p>
+</li>
+<li><p>删除表字段  ALTER TABLE 表名 DROP 字段名;</p>
+</li>
+<li><p>修改指定的字段  ALTER TABLE 表名 CHANGE 原字段名字 新的字段名字 字段类型;</p>
+</li>
+</ul>
+<h1 id="三、对表里面的数据操作"><a href="#三、对表里面的数据操作" class="headerlink" title="三、对表里面的数据操作"></a>三、对表里面的数据操作</h1><h2 id="1-增加数据-INSERT-3种方式"><a href="#1-增加数据-INSERT-3种方式" class="headerlink" title="1.增加数据(INSERT)3种方式"></a>1.增加数据(INSERT)3种方式</h2><ul>
+<li><p>INSERT INTO 表名 VALUES(值1,值2,….);</p>
+</li>
+<li><p>INSERT INTO 表名(字段1,字段2,…) VALUES(值1,值2,….);</p>
+</li>
+<li><p>INSERT INTO 表名(字段1,字段2,…) VALUES(值1,值2,….),(值1,值2,….)</p>
+</li>
+</ul>
+<h2 id="2-删除数据-DELETE"><a href="#2-删除数据-DELETE" class="headerlink" title="2.删除数据(DELETE)"></a>2.删除数据(DELETE)</h2><ul>
+<li>DELETE FROM 表名 WHERE 条件;</li>
+</ul>
+<p>注意：where 条件必须加，否则数据会被全部删除</p>
+<h2 id="3-更新数据-UPDATE"><a href="#3-更新数据-UPDATE" class="headerlink" title="3.更新数据(UPDATE)"></a>3.更新数据(UPDATE)</h2><ul>
+<li>UPDATE 表名 SET 字段1 = 值1, 字段2 = 值2 WHERE 条件;</li>
+</ul>
+<h2 id="4-查询数据-SELETE"><a href="#4-查询数据-SELETE" class="headerlink" title="4.查询数据(SELETE)"></a>4.查询数据(SELETE)</h2><p>查询一条数据</p>
+<ul>
+<li>SELECT 字段名 FROM 表名;</li>
+</ul>
+<p>查询多条数据</p>
+<ul>
+<li>SELECT 字段1,字段2 FROM 表名;</li>
+</ul>
+<p>#查询全部数据</p>
+<ul>
+<li>SELECT * FROM 表名;</li>
+</ul>
+<p>#查询不同的数据，distinct作用于所有列而不仅是紧跟在其后的一列</p>
+<ul>
+<li>SELECT DISTINCT 字段名 FROM 表名;</li>
+</ul>
+<p>#查询前三行的数据</p>
+<ul>
+<li>SELECT 字段名 FROM 表名 LIMIT 3;</li>
+</ul>
+<p>#返回从第1行起的1行数据：limit 开始 offset 行数</p>
+<ul>
+<li>SELECT 字段名 FROM 表名 LIMIT 1 OFFSET 1;</li>
+</ul>
+<p>#按照单列排序(默认升序,按照字段1升序，查询字段1)</p>
+<ul>
+<li>SELECT 字段1 FROM 表名 ORDER BY 字段1;</li>
+</ul>
+<p>#按多个列排序，首先对字段1排，再对字段2排，注意仅在多行具有相同的字段1时才会对字段2进行排序</p>
+<ul>
+<li>SELECT 字段1,字段2,字段3 FROM 表名 ORDER BY 字段1,字段2;</li>
+</ul>
+<p>#对字段1降序，字段2升序，注意desc只应用到直接位于其前面的列名</p>
+<ul>
+<li>SELECT 字段1,字段2,字段3 FROM 表名 ORDER BY 字段1 DESC,字段2;</li>
+</ul>
+<p>#有条件查询单条数据</p>
+<ul>
+<li>SELECT 字段1,字段2 FROM 表名 WHERE 条件;</li>
+<li>SELECT 字段1,字段2 FROM 表名 WHERE vend_id &lt;&gt; ‘DLL01’;(vend_id &lt;&gt; ‘DLL01’等价于vend_id !=’DLL01’)</li>
+</ul>
+<p>#查询范围内的数据</p>
+<ul>
+<li>SELECT 字段1,字段2 FROM 表名<br>WHERE 字段1 BETWEEN 5 AND 10;</li>
+</ul>
+<p>#查询空值</p>
+<ul>
+<li>SELECT 字段 FROM 表名 WHERE 字段 IS NULL;</li>
+</ul>
+<p>#使用AND操作符</p>
+<ul>
+<li>SELECT 字段1,字段2,字段3 FROM 表名 WHERE 条件1 AND 条件2;</li>
+</ul>
+<p>#使用OR操作符</p>
+<ul>
+<li>SELECT 字段1,字段2,字段3 FROM 表名 WHERE vend_id=’DLL01’ OR vend_id=’BRS01’;</li>
+</ul>
+<p>#使用IN操作符(与OR作用相同)</p>
+<ul>
+<li>SELECT 字段1,字段2,字段3 FROM 表名 WHERE vend_id IN(‘DLL01’,’BRS01’);</li>
+</ul>
+<p>#使用NOT操作符(定跟在其后的条件，等价于：where vend_id &lt;&gt;’DLL01’)</p>
+<ul>
+<li>SELECT 字段1,字段2,字段3 FROM 表名 WHERE NOT vend_id=’DLL01’;</li>
+</ul>
+<p>#LIKE操作符+%通配符，返回所有以Fish开头的数据</p>
+<ul>
+<li>SELECT 字段1,字段2,字段3 FROM 表名 WHERE 字段1 LIKE’Fish%’;</li>
+</ul>
+<p>#返回包含’bean bag’，无论在前或者在后</p>
+<ul>
+<li>SELECT 字段1,字段2,字段3 FROM 表名 WHERE 字段 LIKE’%bear bag%’;</li>
+</ul>
+<p>#返回以F开头，以y结尾的所有数据</p>
+<ul>
+<li>SELECT 字段1,字段2,字段3 FROM 表名 WHERE 字段 LIKE’F%y’;</li>
+</ul>
+<p>#avg()用于求均值，只用于单列，忽略列值为null的行</p>
+<ul>
+<li>SELECT AVG(字段) AS 自定义字段名 FROM 表名;</li>
+</ul>
+<p>#计算表中行的数目，不忽略空值</p>
+<ul>
+<li>SELECT COUNT(*) AS 自定义字段名 FROM 表名;</li>
+</ul>
+<p>#计算指定列中具有值的行数，忽略空值</p>
+<ul>
+<li>SELECT COUNT(字段) AS 自定义字段名 FROM 表名;</li>
+</ul>
+<p>#返回最大值，忽略空值</p>
+<ul>
+<li>SELECT MAX(字段) AS 自定义字段名 FROM 表名;</li>
+</ul>
+<p>#返回最小值，忽略空值</p>
+<ul>
+<li>SELECT MIN(字段) AS 自定义字段名 FROM 表名;</li>
+</ul>
+<p>#返回总和，忽略空值</p>
+<ul>
+<li>SELECT SUM(字段) AS 自定义字段名 FROM 表名;</li>
+</ul>
+<p>#按id进行分组，count对每个id都做一次计数，group by子句必须出现在where子句之后，order by之前</p>
+<ul>
+<li>SELECT vend_id,COUNT(*) AS 自定义字段名 FROM 表名 GROUP BY vend_id;</li>
+</ul>
+<p>#过滤分组</p>
+<ul>
+<li>SELECT 字段1,COUNT(<em>) AS 自定义字段名 FROM 表名 GROUP BY 字段1 HAVING COUNT(</em>)&gt;=2;</li>
+</ul>
+<p>#由内向外进行</p>
+<ul>
+<li>SELECT 字段1 FROM 表名 WHERE 字段 IN<br>(SELECT 字段1 FROM 表名 WHERE prod_id    =’BRO1’);</li>
+</ul>
+<p>#等价于</p>
+<ul>
+<li>SELECT 字段 FROM 表名 WHERE prod_id=’BRO1’;#输出什么，后面()写什么</li>
+<li>SELECT 字段 FROM 表名 WHERE order_num in(a,b);</li>
+</ul>
+<p>#内连接(等值连接)</p>
+<ul>
+<li>SELECT 字段,FROM 表1 INNER JOIN 表2 ON 条件;</li>
+</ul>
+<p>#左连接</p>
+<ul>
+<li>SELECT 字段1,字段2 FROM 表1 LEFT JOIN 表2 ON 条件;</li>
+</ul>
+<p>#右连接</p>
+<ul>
+<li>SELECT 字段1,字段2 FROM 表1 RIGHT JOIN 表2 ON 条件;</li>
+</ul>
+<h1 id="四、mysql常用语句"><a href="#四、mysql常用语句" class="headerlink" title="四、mysql常用语句"></a>四、mysql常用语句</h1><h2 id="1-主键约束"><a href="#1-主键约束" class="headerlink" title="1.主键约束"></a>1.主键约束</h2><p>特点是非空且唯一  </p>
+<ul>
+<li>直接写在字段后，或者写在创建语句后面 PRIMARY KEY(字段名)</li>
+<li>联合主键,写在创建语句最后<br>PRIMARY KEY(字段1,字段2)<h2 id="2-字段自增长"><a href="#2-字段自增长" class="headerlink" title="2.字段自增长"></a>2.字段自增长</h2>数据表中只有一个自增列，为主键列</li>
+<li>AUTO-INCREMENT<h2 id="3-外键约束"><a href="#3-外键约束" class="headerlink" title="3.外键约束"></a>3.外键约束</h2>写在创建语句的最后</li>
+<li>FOREIGN KEY(从表字段名) REFERENCES 主表名 (主表字段名)<h2 id="4-非空约束"><a href="#4-非空约束" class="headerlink" title="4.非空约束"></a>4.非空约束</h2></li>
+<li>NOT NULL<h2 id="5-默认约束"><a href="#5-默认约束" class="headerlink" title="5.默认约束"></a>5.默认约束</h2>注意字符串,需外加单引号</li>
+<li>DEFAULT 值<h2 id="6-唯一约束"><a href="#6-唯一约束" class="headerlink" title="6.唯一约束"></a>6.唯一约束</h2>主键约束和唯一约束的区别,逐渐无意义,唯一约束可以为NULL</li>
+<li>UNIQUE<h2 id="7-设计范式"><a href="#7-设计范式" class="headerlink" title="7.设计范式"></a>7.设计范式</h2>1NF 保证数据列的原子性<br>2NF 保证每列都和主键想关<br>3NF 保证每列都和主键直接想关 <h2 id="8-引擎"><a href="#8-引擎" class="headerlink" title="8.引擎"></a>8.引擎</h2>常用的引擎有<font color="red">MYISAM</font>和<font color="red">INNODB</font>.<br>在数据库创建语句的最后面,括号外加</li>
+<li>ENGINE=MYISAM/INNODB</li>
+<li>CHARSET=UTF-8<br>也可以加自定义引擎和字符集</li>
+</ul>
+<p>1.MYISAM有三个文件，FROM表示表结构，MYD存储数据，MYI存储索引。INNODB是单文件</p>
+<p>2.INNODB文件比MYISAM小,支持外键和事务</p>
+<p>3.<font color="red">MYISAM</font>应用于SELECT查询比较多的情况;<br><font color="red">INNODB</font>应用于添加(INSERT)、修改(UPDATE)、删除(DELETE)比较多的情况</p>
+<h2 id="9-视图-VIEW"><a href="#9-视图-VIEW" class="headerlink" title="9.视图(VIEW)"></a>9.视图(VIEW)</h2><p>实现简单查询,又不破坏表结构</p>
+<ul>
+<li>CREATE OR REPLACE VIEW 视图名 AS 查询语句;</li>
+</ul>
+<p>1.视图的本质是查询语句;<br>2.对视图的更改,也会修改原表,修改表,也会更改视图。</p>
+<h2 id="10-索引-INDEX"><a href="#10-索引-INDEX" class="headerlink" title="10.索引(INDEX)"></a>10.索引(INDEX)</h2><ul>
+<li>语句 : INDEX(列名(长度));</li>
+<li>CREATE TABLE stuinfo(stuio INT AUTO-INCREMENT PRIMARY KEY,INDEX(stuname(2)));<br>在已经存在的表上建立索引</li>
+<li>ALTER TABLE 表名 ADD INDEX(列名(长度));</li>
+</ul>
+<p>1.优点是加快查询速度,缺点是占用空间<br>2.普通索引、唯一索引、主键索引、组合索引、全文索引、空间索引</p>
+<h2 id="10-事务"><a href="#10-事务" class="headerlink" title="10.事务"></a>10.事务</h2><p>ACID(原子性、一致性、隔离性、持久性)</p>
+<p>① <font color="red">Atomic(原子性)</font>：事务中包含的操作被看做一个逻辑单元，这个逻辑单元中的操作要么全部成 功，要么全部失败。</p>
+<p>② <font color="red">Consistency(一致性)</font>：事务完成时，数据必须处于一致状态，数据的完整性约束没有被破坏，事务在执行过程中发生错误，会被回滚（Rollback）到事务开始前的状态，就像这个事务从来没    有执行过一样。</p>
+<p>③ <font color="red">Isolation(隔离性)</font>：事务允许多个用户对同一个数据进行并发访问，而不破坏数据的正确性 和完整性。同时，并行事务的修改必须与其他并行事务的修改相互独立。</p>
+<p>④ <font color="red">Durability(持久性)</font>：事务结束后，事务处理的结果必须能够得到固化。</p>
+<ul>
+<li>BEGIN;<br>//业务内容<br>UPDATE 银行卡表 SET 余额=余额-200 WHERE 名字=’’;<br>UPDATE 银行卡表 SET 余额=余额+200 WHERE 名字=’’;<br>COMMIT://提交<br>//业务发生错误<br>ROLLBACK;//回滚</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/16/mysql-语句/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-java面向对象" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
