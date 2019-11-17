@@ -152,6 +152,120 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-在Tomcat上配置java-web项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/17/在Tomcat上配置java-web项目/">在Tomcat上配置java web项目</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/17/在Tomcat上配置java-web项目/" class="archive-article-date">
+  	<time datetime="2019-11-17T03:33:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、创建java-web项目"><a href="#一、创建java-web项目" class="headerlink" title="一、创建java web项目"></a>一、创建java web项目</h1><ul>
+<li><p>首先打开<font color="red">Eclipse</font>开发环境,单击”File”new→”Dynanic Web Project”,<br><img src="https://i.loli.net/2019/11/17/b6HflVSA374pBUx.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>点击后出现如下界面<br><img src="https://i.loli.net/2019/11/17/wKmPOMsuAXNj5Bc.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>在”Project name”填写创建项目的名称,点击”next”下一步,<br><img src="https://i.loli.net/2019/11/17/P9NhgKZoi3Ls8pF.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>点击”next”下一步,跳转如下<br><img src="https://i.loli.net/2019/11/17/JswlmOiEfBDoxZA.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>选中上图的”Generage web.xml deployment descriptor”选项,点击”finish”按钮创建项目成功。</p>
+</li>
+</ul>
+<h1 id="二、创建视图-View"><a href="#二、创建视图-View" class="headerlink" title="二、创建视图(View)"></a>二、创建视图(View)</h1><ul>
+<li><p>在项目结构中找到”WebContent”文件夹,右键→”New”→”JSP File”选中点击,<br><img src="https://i.loli.net/2019/11/17/R6St49slbLPYc87.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>创建hello.jsp文件<br><img src="https://i.loli.net/2019/11/17/1KR4yV2iwgeMBpl.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>点击”finish”按钮,创建jsp文件成功。<br><img src="https://i.loli.net/2019/11/17/V3abvYeOyoqlHQE.png" alt="在这里插入图片描述"></p>
+<h1 id="三、创建控制器-Controller"><a href="#三、创建控制器-Controller" class="headerlink" title="三、创建控制器(Controller)"></a>三、创建控制器(Controller)</h1></li>
+<li><p>在项目结构中找到”Java Resources”文件夹中的”src”文件夹,右键→”New”→”Servlet”<br><img src="https://i.loli.net/2019/11/17/LrTVwybGZjniCAa.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>选中点击,出现如下,<br><img src="https://i.loli.net/2019/11/17/oYH7IgbmazGrsT1.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>编辑”HelloServlet.java”,修改代码,<br><img src="https://i.loli.net/2019/11/17/tlh2BWXv1YGNVxe.png" alt="在这里插入图片描述"></p>
+</li>
+</ul>
+<h1 id="四、导入Tomcat服务器"><a href="#四、导入Tomcat服务器" class="headerlink" title="四、导入Tomcat服务器"></a>四、导入Tomcat服务器</h1><ul>
+<li><p>点击”Window”→”Preferences”<br><img src="https://i.loli.net/2019/11/17/C6rpWuKPRSL5A9Y.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>下拉”Server”→”Runtime Environments”打开,点击”Add..”<br><img src="https://i.loli.net/2019/11/17/vPx918sDiOaoGht.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>选择对应的Tomcat版本,点击”next”<br><img src="https://i.loli.net/2019/11/17/2cUP1GhMR4IlwpY.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>点击”Browse..”,选择Tomcat路径<br><img src="https://i.loli.net/2019/11/17/6VmZwJDodkTqfWA.png" alt="在这里插入图片描述"></p>
+</li>
+</ul>
+<h1 id="五、配置服务器"><a href="#五、配置服务器" class="headerlink" title="五、配置服务器"></a>五、配置服务器</h1><ul>
+<li><p>在左侧项目空白处右键”new”→”other”<br><img src="https://i.loli.net/2019/11/17/BEYLkFCOTX364hm.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>找到”server”选项点击”next”,<br><img src="https://i.loli.net/2019/11/17/YIsSOkqEXBcUAz5.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>选择对应的Tomcat Server版本,点击”next”,<br><img src="https://i.loli.net/2019/11/17/vBimqgaUT7HC8jk.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>选择java web 项目,点击”Add..”→”finish”.<br><img src="https://i.loli.net/2019/11/17/BzKP1ivaUH29LeM.png" alt="在这里插入图片描述"></p>
+</li>
+</ul>
+<h1 id="六、运行项目"><a href="#六、运行项目" class="headerlink" title="六、运行项目"></a>六、运行项目</h1><ul>
+<li><p>首先启动服务器,<br><img src="https://i.loli.net/2019/11/17/vQKYIrEw4tzlnCG.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>其次,启动浏览器。在Eclipse的内置浏览器或者第三方浏览器输入链接,访问我们的hello.jsp。</p>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/17/在Tomcat上配置java-web项目/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-mysql-语句" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
